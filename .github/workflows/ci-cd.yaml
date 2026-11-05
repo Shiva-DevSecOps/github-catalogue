@@ -1,14 +1,18 @@
 name: cicd
+
 on:
   push:
   workflow_dispatch:
+
 jobs:
   common:
     uses: Shiva-DevSecOps/reusable-workflows/.github/workflows/common.yaml@main
+
     with:
       project: roboshop
       component: catalogue
       app_type: nodejs
+
     secrets:
-      AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
